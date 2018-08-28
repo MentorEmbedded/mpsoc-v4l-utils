@@ -3,6 +3,7 @@
 
 #ifdef ANDROID
 #include <android-config.h>
+#include <sys/sysmacros.h>
 #else
 #include <config.h>
 #endif
