@@ -39,6 +39,11 @@
 #include "tools.h"
 #include "v4l2subdev.h"
 
+/* FIXME: tmp hack to add Xilinx's NV12 format */
+#ifndef MEDIA_BUS_FMT_VYYUYY8_1X24
+#define MEDIA_BUS_FMT_VYYUYY8_1X24		0x202C
+#endif
+
 int v4l2_subdev_open(struct media_entity *entity)
 {
 	if (entity->fd != -1)
@@ -885,6 +890,7 @@ static const struct {
 	{ "RBG24", MEDIA_BUS_FMT_RBG888_1X24 },
 	{ "RGB32", MEDIA_BUS_FMT_RGB888_1X32_PADHI },
 	{ "ARGB32", MEDIA_BUS_FMT_ARGB8888_1X32 },
+	{ "VYYUYY8", MEDIA_BUS_FMT_VYYUYY8_1X24},
 };
 
 const char *v4l2_subdev_pixelcode_to_string(enum v4l2_mbus_pixelcode code)
